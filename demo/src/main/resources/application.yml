@@ -1,0 +1,31 @@
+spring:
+  profile : local
+  datasource:
+    demo-db:
+      jdbc-url: jdbc:mysql://localhost:3306/demo?characterEncoding=UTF-8&serverTimezone=UTC
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      username: demo
+      password: demo
+# 정적파일 실시간 반영      
+  devtools :
+    livereload
+      enabled:true
+  freemarker:
+    cache: true
+# JPA
+  jpa:
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+    properties:
+      hibernate:
+        format_sql: true
+    generate-ddl: true
+  
+  logging:
+    level:
+      org:
+        hibernate:
+          SQL: DEBUG
+          type:
+            descriptor:
+              sql:
+                BasicBinder: TRACE
